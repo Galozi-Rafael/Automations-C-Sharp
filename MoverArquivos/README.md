@@ -55,7 +55,7 @@ F --> Z
 
 ## Estrutura do projeto
 ```mermaid
-graph TD
+graph LR
 A[MoverArquivos] --> B[src]
 A --> C[.gitignore]
 A --> D[MoverArquivos.slnx]

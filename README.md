@@ -13,7 +13,7 @@ Esse repositório de tipo monolítico colecionará projetos de **Automações em
 ## Estrutura do Repositório
 
 ```mermaid
-graph TD
+graph LR
 A[Automações em C Sharp] --> B[README.md]
 A --> C[MoverArquivos]
 ```
