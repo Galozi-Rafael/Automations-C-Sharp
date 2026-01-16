@@ -16,4 +16,5 @@ Esse repositório de tipo monolítico colecionará projetos de **Automações em
 graph LR
 A[Automações em C Sharp] --> B[README.md]
 A --> C[MoverArquivos]
+A --> D[MonitorEmail]
 ```
