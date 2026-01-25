@@ -4,6 +4,7 @@ using ExtrairExcel.Services;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ExtrairExcel
 {
@@ -39,7 +40,7 @@ namespace ExtrairExcel
 
             var table = await webservice.ScrapeTransactionsTableAsync(page);
 
-            foreach (var row in table)
+            /*foreach (var row in table)
             {
                 foreach (var cell in row)
                 {
@@ -51,6 +52,26 @@ namespace ExtrairExcel
 
             Console.WriteLine();
             Console.WriteLine("Scrape concluído com sucesso!");
+            Console.Write("Pressione qualquer tecla para sair...");
+            Console.ReadKey();*/
+
+            Console.WriteLine("Gerando Excel...");
+
+            var excelService = new ExcelService();
+
+            string destDir = @"\output";
+            string excelFileName = "Relatorio.xlsx";
+            if (!Directory.Exists(destDir))
+            {
+                Directory.CreateDirectory(destDir);
+            }
+
+            var outputPath = Path.Combine(destDir, excelFileName);
+
+            excelService.ExportToExcel(table, outputPath);
+
+            Console.WriteLine($"Excel gerado com sucesso em: {outputPath}");
+
             Console.Write("Pressione qualquer tecla para sair...");
             Console.ReadKey();
         }

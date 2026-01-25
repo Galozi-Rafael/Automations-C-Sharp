@@ -8,6 +8,7 @@ namespace ExtrairExcel.Services
 {
     public class WebService
     {
+        // Abre uma página no navegador e navega até a URL especificada.
         public async Task<IPage> OpenPageAsync(string url)
         {
             var playwright = await Playwright.CreateAsync();
@@ -24,6 +25,7 @@ namespace ExtrairExcel.Services
             return page;
         }
 
+        // Realiza o login na página usando o nome de usuário e senha fornecidos.
         public async Task LoginAsync(IPage page, string username, string password)
         {
             await page.WaitForSelectorAsync("#username");
@@ -33,6 +35,8 @@ namespace ExtrairExcel.Services
             await page.WaitForLoadStateAsync(LoadState.NetworkIdle);
         }
 
+
+        // Realiza o scrape da tabela de transações na página e retorna os dados como uma lista de listas de strings.
         public async Task<List<List<string>>> ScrapeTransactionsTableAsync(IPage page)
         {
             var tableSelector = "div.element-wrapper";  //"table.table.table-padded";
@@ -81,6 +85,7 @@ namespace ExtrairExcel.Services
             return result;
         }
 
+        // Normaliza os espaços em branco em uma string, removendo espaços extras e quebras de linha.
         private string NormalizeSpace(string text)
         {
             return string.Join(" ",

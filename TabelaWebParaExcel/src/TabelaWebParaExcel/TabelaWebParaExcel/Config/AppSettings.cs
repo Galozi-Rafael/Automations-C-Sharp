@@ -8,6 +8,6 @@ namespace ExtrairExcel.Config
     {
 
         public LoginSettings Login { get; set; } = new();
-
+        
     }
 }
